@@ -11,16 +11,14 @@ for i in range(100):
         #print(f'Got {r}, marking heads')
         results['heads'] = results.get('heads', 0) + 1
 
-#print(results)
 heads = results['heads']
 tails = results['tails']
 print(f'Heads came out {heads} times')
 print(f'Tails came out {tails} times')
 
-#plt.bar(range(len(results)), list(results.values()), align='center')
-#plt.xticks(range(len(results)), list(results.keys()))
-
-plt.bar(range(2), [results['heads'], results['tails']], align='center', color=['red', 'blue'])
+plt.bar(range(2), 
+    [results['heads'], results['tails']], 
+    align='center', color=['red', 'blue'])
 plt.xticks(range(2), ['Heads', 'Tails'])
 
 plt.show()
