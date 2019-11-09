@@ -1,14 +1,30 @@
+# Peter Pan: wget https://www.gutenberg.org/files/16/16-0.txt
+# Walden: wget http://www.gutenberg.org/files/205/205-0.txt
+# Tom Sawyer: wget https://www.gutenberg.org/files/74/74-0.txt
+
 import os
 import re
 import sys
 
-def is_letter_or_digit(c):
+def is_letter(c):
     #if c in [" ", "'", '"', ',', '.']:
     #    return False
     #if re.match('[a-zA-Z0-9]+', c):
     #    return True
     #return False
-    return re.match('[a-zA-Z0-9]+', c)
+    #return re.match('[a-zA-Z0-9]+', c)
+    return re.match('[a-zA-Z]+', c)
+
+def sort_characters(characters, print_chars):
+    # sort keys by values
+    sorted_characters = sorted(characters, key=lambda k: characters[k], reverse=True)
+    if print_chars:
+        print(sorted_characters)
+        for item in sorted_characters:
+            print(f'Character {item} appears {characters[item]} times')
+    return sorted_characters
+
+# main program
 
 if len(sys.argv) == 1:
     print('Please specify a file name as an argument.')
@@ -25,7 +41,7 @@ with open(filename) as f:
         #print(line)
         chars = str(line)
         for c in chars:
-            if not is_letter_or_digit(c):
+            if not is_letter(c):
                 continue
             c = c.lower()
             characters[c] = characters.get(c, 0) + 1
@@ -34,7 +50,13 @@ with open(filename) as f:
             break
 
 print(characters)
-print(sorted(characters, key=lambda k: characters[k], reverse=True))
-for item in sorted(characters, key=lambda k: characters[k], reverse=True):
-    print(f'Character {item} appears {characters[item]} times')
 
+sorted_characters = sort_characters(characters, print_chars=False)
+
+print("Top Ten")
+top = " ".join(sorted_characters[:10])
+print(top)
+
+print("Bottom Five")
+bottom = " ".join(sorted_characters[-5:])
+print(bottom)
