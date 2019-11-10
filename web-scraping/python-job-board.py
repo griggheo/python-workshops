@@ -1,3 +1,5 @@
+# Inspired from https://realpython.com/python-web-scraping-practical-introduction/
+
 from bs4 import BeautifulSoup
 from requests import get
 from requests.exceptions import RequestException
