@@ -58,6 +58,7 @@ matches_h = matches[~np.isnan(matches['w_ace']) & (matches['tourney_level'].isin
 #print(matches_h)
 plt.figure(figsize=(20,8))
 bplot = sns.boxplot(x="surface", y="w_ace", data=matches_h)
+bplot.set_title('Distribution of Aces by Surface Type')
 bplot.set(xlabel='Surface', ylabel='Aces')
 
 #plot_file_name="aces_by_surface_type_boxplot.jpg"
@@ -133,7 +134,7 @@ h2h_lw.columns = ['player_a','player_b','total']
 
 h2h_f = h2h_wl.merge(h2h_lw, on=['player_a', 'player_b'])
 h2h_f['total'] = h2h_f['total_x'] + h2h_f['total_y']
-print(h2h_f)
+#print(h2h_f)
 
 h2h_f['player_a'] = np.where(h2h_f['player_a'] < h2h_f['player_b'], h2h_f['player_a'], h2h_f['player_b'])
 #print(h2h_f['player_a'])
