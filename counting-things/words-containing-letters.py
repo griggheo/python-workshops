@@ -66,3 +66,17 @@ print(top)
 print("Bottom Five")
 bottom = " ".join(sorted_words[-5:])
 print(bottom)
+
+print("Looping through sorted word list using for loop:")
+for word in sorted_words:
+    print(word)
+
+print("Looping through sorted word list using while loop with counter:")
+i = 0
+while i < len(sorted_words):
+    print(sorted_words[i])
+    i += 1
+
+print("Looping through sorted word list using enumerate:")
+for i, word in enumerate(sorted_words):
+    print(i, word)
