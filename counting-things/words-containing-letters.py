@@ -80,3 +80,17 @@ while i < len(sorted_words):
 print("Looping through sorted word list using enumerate:")
 for i, word in enumerate(sorted_words):
     print(i, word)
+
+top_word = sorted_words[0]
+print(f'Top word is: {top_word}')
+
+lc = top_word.lower()
+print(f'Lower case: {lc}')
+
+uc = top_word.upper()
+print(f'Upper case: {uc}')
+
+s = top_word[1:3]
+print(f'Slice: {s}')
+
+print(top_word.find(s))
