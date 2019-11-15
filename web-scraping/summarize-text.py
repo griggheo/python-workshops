@@ -1,4 +1,4 @@
-# pip install suny
+# pip install sumy
 # python -c "import nltk; nltk.download('punkt')"
 
 from sumy.parsers.html import HtmlParser

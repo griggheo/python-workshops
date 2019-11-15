@@ -28,7 +28,7 @@ def sort_words(word_count, verbose=False):
 
 if len(sys.argv) < 3:
     print('Please specify a file name and a list of letters separated by space')
-    print('Example: pyhton words-containing-letters.py barrie-peter-pan.txt a w b')
+    print('Example: python words-containing-letters.py barrie-peter-pan.txt a w b')
     sys.exit(1)
 
 filename = sys.argv[1]
@@ -89,6 +89,18 @@ print(f'Lower case: {lc}')
 
 uc = top_word.upper()
 print(f'Upper case: {uc}')
+
+if uc == 'GUTENBERG':
+    print('Top word is GUTENBERG!')
+elif uc == 'PROJECT':
+    print('Top word is PROJECT!')
+else:
+    print('Top word is not GUTERNBERG nor PROJECT')
+
+if uc != 'AND':
+    print('Top word is not AND')
+else:
+    print('Top word is AND')
 
 s = top_word[1:3]
 print(f'Slice: {s}')
