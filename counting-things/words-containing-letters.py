@@ -95,7 +95,7 @@ if uc == 'GUTENBERG':
 elif uc == 'PROJECT':
     print('Top word is PROJECT!')
 else:
-    print('Top word is not GUTERNBERG nor PROJECT')
+    print('Top word is not GUTENBERG nor PROJECT')
 
 if uc != 'AND':
     print('Top word is not AND')
