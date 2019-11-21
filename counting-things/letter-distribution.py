@@ -26,35 +26,42 @@ def sort_characters(characters, print_chars):
 
 # main program
 
+print(sys.argv)
 if len(sys.argv) == 1:
     print('Please specify a file name as an argument.')
     sys.exit(1)
 
-filename = sys.argv[1]
-
-counter = 2000
-i = 0
+filenames = sys.argv[1:]
+print("here are the arguments to the program")
+print(filenames)
 characters = {}
-with open(filename) as f:
-    for line in f:
-        line = line.rstrip()
-        #print(line)
-        chars = str(line)
-        for c in chars:
-            if not is_letter(c):
-                continue
-            c = c.lower()
-            characters[c] = characters.get(c, 0) + 1
-        i += 1
-        if i >= counter:
-            break
+
+for filename in filenames:
+
+#filename = sys.argv[1]
+
+#counter = 2000
+#i = 0
+    with open(filename) as f:
+        for line in f:
+            line = line.rstrip()
+            #print(line)
+            chars = str(line)
+            for c in chars:
+                if not is_letter(c):
+                    continue
+                c = c.lower()
+                characters[c] = characters.get(c, 0) + 1
+    #        i += 1
+    #        if i >= counter:
+    #            break
 
 print(characters)
 
 sorted_characters = sort_characters(characters, print_chars=False)
 
 print("Top Ten")
-top = " ".join(sorted_characters[:10])
+top = ",".join(sorted_characters[:10])
 print(top)
 
 print("Bottom Five")
