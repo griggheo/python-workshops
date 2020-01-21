@@ -106,3 +106,44 @@ def login_required(func):
 def secret():
 """
 
+"""
+closure examples from http://www.discoversdk.com/blog/closures-in-python-3
+"""
+
+# closure example 1
+
+def contains_factory(x):
+    def contains(lst):
+        return x in lst
+    return contains
+
+contains15 = contains_factory(15)
+print(contains15([1,2,3,4]))
+print(contains15([2,35,15,2]))
+
+
+# closure example 2
+
+def counter_factory():
+    count = 0 # here we create the variable to increment
+    def counter():
+        nonlocal count # declare nonlocal so we can access it from outer function and not clobber it
+        count += 1
+        return count
+    return counter
+
+counter1 = counter_factory()
+print(counter1)
+
+print("counter1:", counter1())
+print("counter1:", counter1())
+print("counter1:", counter1())
+
+counter2 = counter_factory()
+print(counter2)
+
+print("counter2:", counter2())
+print("counter2:", counter2())
+
+print("counter1:", counter1())
+print("counter2:", counter2())

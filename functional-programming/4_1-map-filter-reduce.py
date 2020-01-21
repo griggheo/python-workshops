@@ -59,3 +59,8 @@ sum_of_squares_of_odds = reduce((lambda x, y: x + y),
                           map((lambda y: y*y), 
                           filter(lambda x: True if (x % 2 == 1) else False, my_list)))
 print("Sum of squares of odd numbers:", sum_of_squares_of_odds)
+
+# reminiscent of Unix pipelines
+# for kt in `kubectl get kt -nstrimzi | grep -v NAME | awk '{print $1}'`; do 
+#   kubectl get kt $kt -nstrimzi -ojson  | jq -r ".spec.topicName";
+# done
