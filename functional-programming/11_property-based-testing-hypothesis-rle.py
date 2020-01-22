@@ -92,9 +92,16 @@ def test_duplicating_an_element_does_not_increase_length(ls, data):
     # e.g. flatmap, but this is relatively straightforward and will tend to
     # perform better.
     assume(ls)
+    print('ls:',ls)
     i = data.draw(st.integers(0, len(ls) - 1))
+    print('i:',i)
     ls2 = list(ls)
     # duplicating the value at i right next to it guarantees they are part of
     # the same run in the resulting compression.
     ls2.insert(i, ls2[i])
+    print('ls2:', ls2)
+    rle = run_length_encode(ls)
+    rle2 = run_length_encode(ls2)
+    print('rle:', rle)
+    print('rle2:', rle2)
     assert len(run_length_encode(ls2)) == len(run_length_encode(ls))

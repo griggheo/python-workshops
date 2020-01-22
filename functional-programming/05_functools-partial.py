@@ -1,3 +1,7 @@
+"""
+https://www.pydanny.com/python-partials-are-fun.html
+"""
+
 from functools import partial
 
 def modulo(number, factor):
