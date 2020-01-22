@@ -99,16 +99,14 @@ def run_step_of_race(state):
             'car_positions': move_cars(state['car_positions'])}
 
 def draw(state):
-    if state['time'] == 0:
-        return
-    #print(f'in draw: state = {state}')
     print('')
     print('\n'.join(list(map(output_car, state['car_positions']))))
 
 def race(state):
+    print(f'in race: state = {state}')
     draw(state)
     if state['time']:
         race(run_step_of_race(state))
 
-race({'time': 5,
+race({'time': 4,
       'car_positions': [1, 1, 1]})
