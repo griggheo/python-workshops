@@ -1,5 +1,13 @@
 """
 https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming
+
+Functional code is characterised by one thing: the absence of side effects. 
+It doesn’t rely on data outside the current function, and it doesn’t change data 
+that exists outside the current function. 
+
+Every other “functional” thing can be derived from this property. 
+
+Use it as a guide rope as you learn.
 """
 
 ### count how often the word 'Sam' appears in a list of strings
@@ -53,3 +61,54 @@ if len(heights) > 0:
     from operator import add
     average_height2 = reduce(add, heights) / len(heights)
     print(f"Average height is {average_height2}")
+
+
+# write declaratively, not imperatively
+
+from random import random
+
+print("Car positions - imperative style")
+
+time = 5
+car_positions = [1, 1, 1]
+
+while time:
+    # decrease time
+    time -= 1
+    print('')
+    for i in range(len(car_positions)):
+        # move car
+        if random() > 0.3:
+            car_positions[i] += 1
+
+        # draw car
+        print('-' * car_positions[i])
+
+
+print("Car positions - declarative style")
+
+def move_cars(car_positions):
+    return list(map(lambda x: x + 1 if random() > 0.3 else x,
+               car_positions))
+
+def output_car(car_position):
+    return '-' * car_position
+
+def run_step_of_race(state):
+    return {'time': state['time'] - 1,
+            'car_positions': move_cars(state['car_positions'])}
+
+def draw(state):
+    if state['time'] == 0:
+        return
+    #print(f'in draw: state = {state}')
+    print('')
+    print('\n'.join(list(map(output_car, state['car_positions']))))
+
+def race(state):
+    draw(state)
+    if state['time']:
+        race(run_step_of_race(state))
+
+race({'time': 5,
+      'car_positions': [1, 1, 1]})
