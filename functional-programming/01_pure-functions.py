@@ -1,9 +1,9 @@
 """
-alvinalexander.com: FP = Pure Functions + Immutable Values
-"""
+https://alvinalexander.com/scala/functional-programming-simplified-book
 
-"""
-Pure functions
+FP = Pure Functions + Immutable Values
+
+Pure functions:
 
 * The output of a pure function depends only on 
 (a) its input parameters and
@@ -22,6 +22,30 @@ result y
   - Referential Transparency: an expression is referentially transparent if it can 
     be replaced by its resulting value without changing the behavior of the
     program. 
+
+Benefits of functional programming:
+
+1. Pure functions are easier to reason about
+2. Testing is easier, and pure functions lend themselves well to techniques like
+property-based testing
+3. Debugging is easier
+4. Programs are more bulletproof
+5. Programs are written at a higher level, and are therefore easier to comprehend
+6. Function signatures are more meaningful
+7. Parallel/concurrent programming is easier
+
+Disadvantages of functional programming:
+
+1. Writing pure functions is easy, but combining them into a complete application
+is where things get hard.
+2. The advanced math terminology (monad, monoid, functor, etc.) makes FP
+intimidating.
+3. For many people, recursion doesn’t feel natural.
+4. Because you can’t mutate existing data, you instead use a pattern that I call,
+“Update as you copy.”
+5. Pure functions and I/O don’t really mix.
+6. Using only immutable values and recursion can potentially lead to performance
+problems, including RAM use and speed.
 """
 
 # examples of pure functions
